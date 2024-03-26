@@ -24,18 +24,19 @@ Owners can also add and update vehicles on the site.
 * Users should be able to remove cars from Favorites.
 
 
-## 4. Search
-* Users should be able to search for cars by car models or makes.
-* Users should be able to search for cars by car locations
-* Users should be able to view the results of their search.
+## 4. Rentals
+* Users should be able to view all the previous rentals.
+* Users should be able to add cars and services to the shopping cart.
+* Users should be able to update cars in the shopping cart.
+* Users should be able to remove cars from the shopping cart or cancel the reservations.
 
 
 # Bonus Feature
 
-## 5. Sort and Filter
-* Users should be able to view the results by sorting
-* Users should be able to view the results by filtering
+## 5. Search / Sort & Filter
+* Users should be able to view the results by sorting or filtering
+* Users should be able to view the results by searching car models or car locations
 
 
-## 6. Ratings
-* Users should be able to rate the cars by clicking the star ratings
+## 6. Amazon Web Services
+* All media should be able to store in AWS.

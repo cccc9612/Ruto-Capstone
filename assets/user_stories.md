@@ -55,14 +55,14 @@
 
 ### Updating Cars
 
-* As a logged in user, I want to be able to update my songs by clicking an Update button.
+* As a logged in user, I want to be able to update my cars by clicking an Update button.
   * When I'm on the `/users/current/cars` pages:
     * I can click "Update" to make changes to cars I have added.
 
 
 ### Deleting Cars
 
-* As a logged in user, I want to be able to delete my songs by clicking a Delete button.
+* As a logged in user, I want to be able to delete my cars by clicking a Delete button.
   * When I'm on the `/users/current/cars` pages:
     * I can click "Delete" to permanently delete a car I have added.
 
@@ -118,11 +118,34 @@
     * I can remove the cars from my favorites.
 
 
-## 4. Search
+## 4. Rentals
 
-### Searching Cars
+### Viewing Rentals
 
-* As a logged in _or_ logged out user, I want to be able to search for cars by clicking the search button on the navigation bar.
-  * When I'm on any page of the site, I can click the search button and:
-    * Search by car's model or make.
-    * Search by car's location.
+* As a logged in user, I want to be able to view all my previous rentals.
+  * When I'm on the `/users/current/rentals` page:
+    * I can view all the cars I rented before.
+    * I can also view the rental date of my reservations.
+
+
+### Adding Cars To Shopping Cart
+
+* As a logged in user, I want to be able to add cars to the shopping cart.
+  * When I'm on the `/cars` or `/cars/:id` page:
+    * I can add cars to the shopping cart.
+
+
+### Updating Shopping Cart
+* As a logged in user, I want to be able to update the cars in the shopping cart by clicking the shopping cart icon.
+  * When I'm on the any page of the site, I can click the shopping cart icon and:
+    * Update the quantity of the cars.
+    * Update the selections for a rental.
+
+
+### Deleting Cars From Shopping Cart / Cancel Reservation
+
+* As a logged in user, I want to be able to delete the cars in the shopping cart or cancel the reservation.
+  * When I'm on the any page of the site, I can click the shopping cart icon and:
+    * Remove the cars from the shopping cart
+  * When I'm on the `/users/current/rental` pages:
+    * I can cancel a reservation.

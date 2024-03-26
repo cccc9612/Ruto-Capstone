@@ -19,6 +19,7 @@
 |-------------|-----------|-----------------------|
 | id          | integer   | not null, primary key |
 | user_id     | integer   | not null, foreign key |
+| price       | integer   | not null              |
 | year        | integer   | not null              |
 | model       | string    | not null              |
 | make        | string    | not null              |
