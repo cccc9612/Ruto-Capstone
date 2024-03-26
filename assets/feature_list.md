@@ -34,9 +34,9 @@ Owners can also add and update vehicles on the site.
 # Bonus Feature
 
 ## 5. Search / Sort & Filter
-* Users should be able to view the results by sorting or filtering
-* Users should be able to view the results by searching car models or car locations
+* Users should be able to view the results by sorting or filtering.
+* Users should be able to view the results by searching car models or car locations.
 
 
 ## 6. Amazon Web Services
-* All media should be able to store in AWS.
+* All media should be able to be stored in AWS.
