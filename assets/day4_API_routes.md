@@ -1,4 +1,4 @@
-# User-facing routes
+# API Routes & Endpoints
 
 ## `/login`
 
@@ -20,27 +20,24 @@ This page displays a signup form.
 
 ## `/`
 
-This page displays the ten songs and ten albums, as well as a navigation bar with login/signup or logout buttons. 
+This page displays two categories of the cars, as well as a navigation bar with login/signup or logout buttons. 
 
 * `GET /`
-* `GET /songs`
-* `GET /albums`
 
 
-## `/songs`
+## `/cars`
 
-This page displays five most recently created songs, with their duration and likes, a logged in user can play the songs, as well as like or unlike the songs.
+This page displays all the cars in the database, with their prices and locations.
 
-* `GET /songs`
-* `GET /songs/:id`
-* `POST /songs/:id/like`
-* `DELETE /songs/:id/dislike`
+* `GET /cars`
+* `GET /cars/:id`
 
-## `/albums`
+
+## `/reviews`
 
 This page displays ten most recently created albums.
 
-* `GET /albums`
+* `GET /reviews`
 
 
 ## `/albums/:id`
@@ -53,15 +50,14 @@ This page displays individual album with associated songs and likes, a logged in
 * `DELETE /songs/:id/dislike`
 
 
-## `/users/current/albums`
+## `/users/cars`
 
-This page displays all the albums belonging to the logged-in user, this page also displays an update, delete, and add songs button.
+This page displays all the cars belong to the logged-in user, it also allows the user to update or delete the cars.
 
-* `GET /users/current`(get current user)
-* `GET /users/current/albums`
-* `POST /users/current/albums`
-* `PUT /users/current/albums/:id/update`
-* `DELETE /users/current/albums/:id/delete` 
+* `GET /users/cars`
+* `POST /users/cars/new`
+* `PUT /users/cars/:id/update`
+* `DELETE /users/albums/:id/delete` 
 
 
 ## `/users/current/songs`

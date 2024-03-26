@@ -50,20 +50,20 @@
 ### Adding Cars
 
 * As a logged-in user, I want to be able to add cars.
-  * When I'm on the `users/current/cars/new` page:
+  * When I'm on the `/users/cars/new` page:
     * I can add a new car.
 
 ### Updating Cars
 
 * As a logged-in user, I want to be able to update my cars by clicking an Update button.
-  * When I'm on the `/users/current/cars` pages:
+  * When I'm on the `/users/cars` pages:
     * I can click "Update" to make changes to the cars I have added.
 
 
 ### Deleting Cars
 
 * As a logged-in user, I want to be able to delete my cars by clicking a Delete button.
-  * When I'm on the `/users/current/cars` pages:
+  * When I'm on the `/users/cars` pages:
     * I can click "Delete" to permanently delete a car I have added.
 
 ## 2. Reviews
@@ -79,13 +79,13 @@
 ### Adding Reviews
 
 * As a logged-in user, I want to be able to create a new review.
-  * When I'm on the `/users/current/cars/:id` page:
+  * When I'm on the `/cars/:id` page:
     * I can create a new review.
 
 
 ### Updating Reviews
 * As a logged-in user, I want to be able to update my reviews by clicking an Update button.
-  * When I'm on the `/users/current/reviews` pages:
+  * When I'm on the `/users/reviews` pages:
     * I can click "Update" to make changes to reviews I have created.
       * I can add or delete reviews I added to the cars.
 
@@ -93,16 +93,16 @@
 ### Deleting Reviews
 
 * As a logged-in user, I want to be able to delete my reviews by clicking a Delete button.
-  * When I'm on the `/users/current/reviews` pages:
+  * When I'm on the `/users/reviews` pages:
     * I can click "Delete" to permanently delete a review I have created.
 
 ## 3. Favorites
 
 ### Viewing Favorites
 
-* As a logged-in _or_ logged-out user, I want to be able to view all the likes of the cars.
-  * When I'm on the `/cars` age:
-    * I can view the total likes of the cars.
+* As a logged-in user, I want to be able to view all my favorites.
+  * When I'm on the  `/users/favorites` page:
+    * I can view all my favorite cars.
 
 
 ### Adding Favorites
@@ -114,7 +114,7 @@
 
 ### Removing Favorites
 * As a logged-in user, I want to be able to remove the car from my favorites by clicking the filled heart button.
-  * When I'm on the `/users/current/favorites` page:
+  * When I'm on the `/users/favorites` page:
     * I can remove the cars from my favorites.
 
 
@@ -123,7 +123,7 @@
 ### Viewing Rentals
 
 * As a logged-in user, I want to be able to view all my previous rentals.
-  * When I'm on the `/users/current/rentals` page:
+  * When I'm on the `/users/rentals` page:
     * I can view all the cars I rented before.
     * I can also view the rental date of my reservations.
 
@@ -146,5 +146,5 @@
 * As a logged-in user, I want to be able to delete the cars in the shopping cart or cancel the reservation.
   * When I'm on any page of the site, I can click the shopping cart icon and:
     * Remove the cars from the shopping cart
-  * When I'm on the `/users/current/rental` pages:
+  * When I'm on the `/users/rental` pages:
     * I can cancel a reservation.
