@@ -115,11 +115,24 @@ def seed_cars():
         description= 'Versatile and spacious SUV.'
     )
 
+    db.session.add(car1)
+    db.session.add(car2)
+    db.session.add(car3)
+    db.session.add(car4)
+    db.session.add(car5)
+    db.session.add(car6)
+    db.session.add(car7)
+    db.session.add(car8)
+    db.session.add(car9)
+    db.session.add(car10)
+    db.session.commit()
 
-def undo_songs():
+
+
+def undo_cars():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.songs RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.cars RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM songs"))
+        db.session.execute(text("DELETE FROM cars"))
 
     db.session.commit()
