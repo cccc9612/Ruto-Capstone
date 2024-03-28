@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaBars, FaRegUserCircle } from 'react-icons/fa';
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { NavLink } from "react-router-dom";
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -39,20 +40,50 @@ function ProfileButton() {
     closeMenu();
   };
 
+
   return (
     <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
+      <button
+        className={showMenu ? "profile-button-open" : "profile-button-close"}
+        onClick={toggleMenu}>
+        <FaBars />
+        <FaRegUserCircle />
       </button>
       {showMenu && (
         <ul className={"profile-dropdown"} ref={ulRef}>
           {user ? (
             <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
-              </li>
+              <div className="profile-dropdown-links-div">
+                <NavLink to={`/users/${user.id}/favorites`}
+                  onClick={toggleMenu}>
+                  <li>Favorites</li>
+                </NavLink>
+                <NavLink to={`trips`} onClick={toggleMenu}>
+                  <li>Trips</li>
+                </NavLink>
+              </div>
+              <div className="profile-dropdown-user-div">
+                <NavLink to={`/users/${user.id}`} onClick={toggleMenu}>
+                  <li id='profile-navlink'>Profile</li>
+                </NavLink>
+                <NavLink to={`/account`} onClick={toggleMenu}>
+                  <li>Account</li>
+                </NavLink>
+                <NavLink to={`/cars/new`} onClick={toggleMenu}>
+                  <li>Add a car</li>
+                </NavLink>
+              </div>
+              <div className="profile-dropdown-manage-div">
+                <NavLink to={'/cars/manage'} onClick={toggleMenu}>
+                  <li>Manage Cars</li>
+                </NavLink>
+                <NavLink to={'/reviews/manage'} onClick={toggleMenu}>
+                  <li>Manage Reviews</li>
+                </NavLink>
+              </div>
+              <div className="profile-dropdown-logout-div">
+                <li id='logout-li' onClick={logout}>Log Out</li>
+              </div>
             </>
           ) : (
             <>
@@ -72,6 +103,6 @@ function ProfileButton() {
       )}
     </>
   );
-}
 
+};
 export default ProfileButton;

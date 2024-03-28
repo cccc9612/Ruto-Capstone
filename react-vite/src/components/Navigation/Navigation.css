@@ -1,3 +1,81 @@
 .profile-dropdown {
   position: absolute;
 }
+
+.logo {
+  width: 120px;
+  margin-top: -30px;
+}
+
+.header-container {
+  border-bottom: 1px solid #F3F3F3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  position: fixed;
+  top: 0;
+}
+
+#host-box {
+  border: 1px solid black;
+  color: black;
+  padding: .4rem;
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+/* ProfileButton CSS Below */
+
+.profile-button-close,
+.profile-button-open {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: white;
+  border-radius: .5rem;
+  height: 100%;
+  font-size: large;
+  font-weight: 200;
+  padding: .3rem .75rem;
+  margin-right: 0;
+}
+
+.profile-button-open,
+.profile-button-close:hover {
+  background-color: rgba(141, 144, 147, 0.383);
+}
+
+
+.profile-dropdown li {
+  cursor: pointer;
+  padding: .5rem;
+  border-radius: 5px;
+}
+
+.profile-dropdown-links-div {
+  padding-bottom: 1rem;
+}
+
+.profile-dropdown-user-div {
+  padding: 1rem 0;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.profile-dropdown-manage-div {
+  padding: 1rem 0;
+}
+
+.profile-dropdown-logout-div {
+  padding-top: 1rem;
+  border-top: 1px solid lightgray;
+}
+
+.profile-dropdown li:hover {
+  background-color: var(--hover)
+}
