@@ -29,7 +29,4 @@ class Review(db.Model):
       "review": self.review,
       "createdAt": self.created_at,
       "updatedAt": self.updated_at,
-      "carYear": self.car.year,
-      "carModel": self.car.model,
-      "carMake": self.car.make
     }
