@@ -15,9 +15,6 @@ def updateReview(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     get_review = Review.query.get(id)
     user = current_user.to_dict()
-
-    if  get_review.to_dict()["user_id"] != user["id"]:
-        return {"message": "unauthorized"}, 401
     
     if not get_review:
         return {"message": "Review not found."}, 404
@@ -40,9 +37,6 @@ def updateReview(id):
 def deleteReview(id):
     get_review = Review.query.get(id)
     user = current_user.to_dict()
-
-    if get_review.to_dict()["user_id"] != user["id"]:
-        return {"message": "unauthorized"}, 401
     
     if not get_review:
         return {"message": "Review not found."}, 404
