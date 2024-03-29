@@ -59,6 +59,17 @@
 }
 
 
+.profile-dropdown {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 4px 8px grey;
+  margin: 2px 2px 2px 2px;
+  position: absolute;
+  right: 1rem;
+  width: 200px;
+}
+
 .profile-dropdown li {
   cursor: pointer;
   padding: .5rem;

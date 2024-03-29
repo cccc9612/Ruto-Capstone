@@ -50,7 +50,7 @@ function ProfileButton() {
         <FaRegUserCircle />
       </button>
       {showMenu && (
-        <ul className={"profile-dropdown"} ref={ulRef}>
+        <ul className="profile-dropdown" ref={ulRef}>
           {user ? (
             <>
               <div className="profile-dropdown-links-div">
@@ -63,12 +63,6 @@ function ProfileButton() {
                 </NavLink>
               </div>
               <div className="profile-dropdown-user-div">
-                <NavLink to={`/users/${user.id}`} onClick={toggleMenu}>
-                  <li id='profile-navlink'>Profile</li>
-                </NavLink>
-                <NavLink to={`/account`} onClick={toggleMenu}>
-                  <li>Account</li>
-                </NavLink>
                 <NavLink to={`/cars/new`} onClick={toggleMenu}>
                   <li>Add a car</li>
                 </NavLink>
@@ -82,7 +76,7 @@ function ProfileButton() {
                 </NavLink>
               </div>
               <div className="profile-dropdown-logout-div">
-                <li id='logout-li' onClick={logout}>Log Out</li>
+                <li onClick={logout}>Log Out</li>
               </div>
             </>
           ) : (
