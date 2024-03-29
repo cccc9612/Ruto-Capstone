@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaUserCircle, FaBars, FaRegUserCircle } from 'react-icons/fa';
+import { FaBars, FaRegUserCircle } from 'react-icons/fa';
 import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
@@ -98,5 +98,5 @@ function ProfileButton() {
     </>
   );
 
-};
+}
 export default ProfileButton;

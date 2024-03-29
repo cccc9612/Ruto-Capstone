@@ -14,7 +14,7 @@ import porsche from './images/porsche-clipart.png'
 import subaru from './images/subaru-clipart.png'
 import sydney from './images/sydney-clipart.png'
 import tesla from './images/tesla-clipart.png'
-import toronto from './images/toronto-clipart.png'
+// import toronto from './images/toronto-clipart.png'
 
 
 export const HomePage = () => {
