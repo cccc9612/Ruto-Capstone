@@ -1,0 +1,135 @@
+.homepage-background-img img {
+    width: 100%;
+    border-radius: 8px;
+    height: 25rem;
+    object-fit: cover;
+}
+
+.homepage-search-box {
+    display: flex;
+    position: absolute;
+    top: 8rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 30px;
+    padding: .5rem;
+    justify-content: space-between;
+    width: 750px;
+    align-items: center;
+}
+
+
+#where-div {
+    flex: 1;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+#where-div input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#from-div,
+#until-div {
+    width: 150px;
+    padding-left: 1rem;
+}
+
+.homepage-search-box label {
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.homepage-search-box input {
+    border: none;
+}
+
+.homepage-search-box-btn {
+    color: white;
+    background-color: var(--purple);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: large;
+    cursor: pointer;
+}
+
+.homepage-catchphrases {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homepage-catchphrases h1,
+.homepage-catchphrases h2 {
+    text-align: center;
+}
+
+.homepage-catchphrases h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 90px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.homepage-title-section {
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+.purple-bar {
+    background-color: rgba(221, 196, 255, 0.384);
+    height: 1.75rem;
+    width: 620px;
+    margin: 0 auto;
+    position: absolute;
+    top: 40.5rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#view-vans-btn {
+    width: 200px;
+    margin: 1rem auto;
+    border: none;
+    padding: .75rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.homepage-makes-div {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.makes-cards-div {
+    display: flex;
+    gap: 1rem;
+}
+
+
+.category-pic img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+
+}
+
+.category-pic h4 {
+    margin: 0;
+    padding: 1rem;
+    font-size: 14px;
+    text-align: center;
+}

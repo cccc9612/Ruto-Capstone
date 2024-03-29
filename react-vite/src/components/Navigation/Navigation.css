@@ -4,17 +4,19 @@
 
 .logo {
   width: 120px;
-  margin-top: -30px;
 }
 
 .header-container {
   border-bottom: 1px solid #F3F3F3;
-  width: 100%;
+  width: 97.5%;
+  height: 60px;
   display: flex;
   align-items: center;
   padding: 1rem 1.5rem;
   position: fixed;
   top: 0;
+  background-color: white;
+  justify-content: space-between;
 }
 
 #host-box {
@@ -25,6 +27,12 @@
   align-items: center;
 }
 
+.header-left,
+.header-right {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
 
 
 

@@ -6,14 +6,18 @@ import logo from './ruto-logo.png'
 function Navigation() {
   return (
     <header className="header-container">
-      <Link to="/">
-        <img className="logo" src={logo} alt='logo' />
-      </Link>
-      <div id="host-box">
-        <NavLink to>Become a host</NavLink>
+      <div className="header-left">
+        <Link to="/">
+          <img className="logo" src={logo} alt='logo' />
+        </Link>
       </div>
-      <div className="profile-button-div">
-        <ProfileButton />
+      <div className="header-right">
+        <div id="host-box">
+          <NavLink to>Become a host</NavLink>
+        </div>
+        <div className="profile-button-div">
+          <ProfileButton />
+        </div>
       </div>
     </header >
   )
