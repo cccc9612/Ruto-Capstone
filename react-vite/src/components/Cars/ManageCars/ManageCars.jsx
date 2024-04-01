@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useModal } from "../../../context/Modal";
@@ -17,13 +17,17 @@ function ManageCars() {
     const cars = Object.values(carState?.Cars)
     const currentUser = useSelector(state => state.session.user)
 
+    // const userCars = Object.values(carState?.Cars).filter(car => car.userId === currentUser?.id);
+    // console.log('car.userId', carState.id)
+    // console.log('currentuserId', currentUser.id)
+
     useEffect(() => {
         if (!currentUser) navigate('/');
         dispatch(getCurrentCarThunk())
     }, [dispatch, currentUser, navigate])
 
 
-    const handleDeleteClick = (carId) => {
+    const handleDelete = (carId) => {
         setModalContent(<DeleteCar carId={carId} />)
     }
 
@@ -41,7 +45,7 @@ function ManageCars() {
                                     <CarList car={car} />
                                 </NavLink>
                                 <button className="update-car-button"><Link className="update-car-link" to={`/cars/${car.id}/edit`}>Update</Link></button>
-                                <button className="delete-car-button" onClick={() => handleDeleteClick(car.id)}>Delete</button>
+                                <button className="delete-car-button" onClick={() => handleDelete(car.id)}>Delete</button>
                             </div>
                         )
                     })}

@@ -17,11 +17,17 @@ import tesla from './images/tesla-clipart.png'
 // import toronto from './images/toronto-clipart.png'
 
 
+
 export const HomePage = () => {
     const navigate = useNavigate();
     const [where, setWhere] = useState("")
     const [from, setFrom] = useState(moment().format("YYYY-MM-DD"))
     const [until, setUntil] = useState(moment().add(7, 'days').format("YYYY-MM-DD"))
+
+
+    const navigateToCarModel = (model) => {
+        navigate(`/cars?model=${model}`);
+    };
 
     return (
         <div className="homepage">
@@ -38,7 +44,7 @@ export const HomePage = () => {
                     <label>Until</label>
                     <input type="date" value={until} onChange={e => setUntil(e.target.value)} />
                 </div>
-                <button className="homepage-search-btn"><FaSearch /></button>
+                <button className="homepage-search-button"><FaSearch /></button>
             </form>
             <div className="homepage-background-img">
                 <img src={homepageImage} alt='homepageImage' />
@@ -54,7 +60,7 @@ export const HomePage = () => {
                     <h3>Browse by make</h3>
                     <div className="makes-cards-div">
                         <div className="category-pic" onClick={() => {
-                            navigate("/cars")
+                            navigate('/cars')
                         }}>
                             <h4>Jeep</h4>
                             <img className="category-pic" src={jeep} alt='category-pic' />
@@ -92,31 +98,31 @@ export const HomePage = () => {
                             navigate("/cars")
                         }}>
                             <h4>Los Angeles</h4>
-                            <img className="category-pic" src={losAngeles} alt='category-pic' />
+                            <img className="category-pic-location" src={losAngeles} alt='category-pic' />
                         </div>
                         <div className="category-pic" onClick={() => {
                             navigate("/cars")
                         }}>
                             <h4>Honolulu</h4>
-                            <img className="category-pic" src={honolulu} alt='category-pic' />
+                            <img className="category-pic-location" src={honolulu} alt='category-pic' />
                         </div>
                         <div className="category-pic" onClick={() => {
                             navigate("/cars")
                         }}>
                             <h4>Paris</h4>
-                            <img className="category-pic" src={paris} alt='category-pic' />
+                            <img className="category-pic-location" src={paris} alt='category-pic' />
                         </div>
                         <div className="category-pic" onClick={() => {
                             navigate("/cars")
                         }}>
                             <h4>Sydney</h4>
-                            <img className="category-pic" src={sydney} alt='category-pic' />
+                            <img className="category-pic-location" src={sydney} alt='category-pic' />
                         </div>
                         <div className="category-pic" onClick={() => {
                             navigate("/cars")
                         }}>
                             <h4>London</h4>
-                            <img className="category-pic" src={london} alt='category-pic' />
+                            <img className="category-pic-location" src={london} alt='category-pic' />
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,7 @@ function CarList({ car }) {
                 <p>{car.make}</p>
                 <p>{car.model}</p>
                 <p>${car.price}</p>
+                <p>{car.city}, {car.state}</p>
             </div>
         </div>
     )

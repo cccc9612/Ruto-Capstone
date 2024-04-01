@@ -2,9 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 // import { useModal } from "../../../context/Modal";
 import { getACarThunk } from "../../../redux/car";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./CarDetails.css"
 import defaultImage from '../CarList/default-car-img.png'
+
 
 
 function CarDetails() {
@@ -47,6 +48,7 @@ function CarDetails() {
                     </div>
                 </div>
             </div>
+            <Link to="/cars" className="back-button">Back to Cars</Link>
 
         </div>
 

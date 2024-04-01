@@ -25,12 +25,12 @@ function CreateCars() {
     useEffect(() => {
         const validationObj = {};
 
-        if (!price) {
-            validationObj.price = "Price is required"
+        if (!price || price < 0) {
+            validationObj.price = "Price is required and must greater than 0"
         }
 
-        if (!year) {
-            validationObj.year = "Year is required"
+        if (!year || price < 1920) {
+            validationObj.year = "Year is required and must greater than 1920"
         }
 
         if (model.length < 1) {
@@ -80,106 +80,106 @@ function CreateCars() {
     const isDisabled = !price || !year || !mileage || model.length < 1 || city.length < 1 || state.length < 1 || description.length < 20;
 
     return (
-        <div>
-            <div className="create-car-title">
-                <h1>Create a new car</h1>
-            </div>
+        <div >
             <form
                 onSubmit={handleSubmit}
                 encType="multipart/form-data"
             >
                 <div className="create-car-container">
-                    <div className="create-car-input-section">
-                        <label>
-                            Price $
-                        </label>
-                        <input
-                            type="number" step='1'
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                        />
-                        <div>{errors.price && <p className="create-car-validator">{errors.price}</p>}</div>
-                    </div>
+                    <div className="create-form-left">
+                        <div className="create-car-input-section">
+                            <label>
+                                Price $
+                            </label>
+                            <input
+                                type="number" step='1'
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                            />
+                            <div>{errors.price && <p className="create-car-validator">{errors.price}</p>}</div>
+                        </div>
 
-                    <div className="create-car-input-section">
-                        <label>
-                            Year
-                        </label>
-                        <input
-                            type="number" step='1'
-                            value={year}
-                            onChange={(e) => setYear(e.target.value)}
-                        />
-                        <div>{errors.year && <p className="create-car-validator">{errors.year}</p>}</div>
-                    </div>
-                    <div className="create-car-input-section">
-                        <label>
-                            Model
-                        </label>
-                        <input
-                            type="text"
-                            value={model}
-                            onChange={(e) => setModel(e.target.value)}
-                        />
-                        <div>{errors.model && <p className="create-car-validator">{errors.model}</p>}</div>
-                    </div>
+                        <div className="create-car-input-section">
+                            <label>
+                                Year
+                            </label>
+                            <input
+                                type="number" step='1'
+                                value={year}
+                                onChange={(e) => setYear(e.target.value)}
+                            />
+                            <div>{errors.year && <p className="create-car-validator">{errors.year}</p>}</div>
+                        </div>
+                        <div className="create-car-input-section">
+                            <label>
+                                Model
+                            </label>
+                            <input
+                                type="text"
+                                value={model}
+                                onChange={(e) => setModel(e.target.value)}
+                            />
+                            <div>{errors.model && <p className="create-car-validator">{errors.model}</p>}</div>
+                        </div>
 
-                    <div className="create-car-input-section">
-                        <label>
-                            Make
-                        </label>
-                        <input
-                            type="text"
-                            value={make}
-                            onChange={(e) => setMake(e.target.value)}
-                        />
-                        <div>{errors.make && <p className="create-car-validator">{errors.make}</p>}</div>
+                        <div className="create-car-input-section">
+                            <label>
+                                Make
+                            </label>
+                            <input
+                                type="text"
+                                value={make}
+                                onChange={(e) => setMake(e.target.value)}
+                            />
+                            <div>{errors.make && <p className="create-car-validator">{errors.make}</p>}</div>
+                        </div>
                     </div>
-                    <div className="create-car-input-section">
-                        <label>
-                            City
-                        </label>
-                        <input
-                            type="text"
-                            value={city}
-                            onChange={(e) => setCity(e.target.value)}
-                        />
-                        <div>{errors.city && <p className="create-car-validator">{errors.city}</p>}</div>
+                    <div className="create-form-right">
+                        <div className="create-car-input-section">
+                            <label>
+                                City
+                            </label>
+                            <input
+                                type="text"
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
+                            />
+                            <div>{errors.city && <p className="create-car-validator">{errors.city}</p>}</div>
+                        </div>
+                        <div className="create-car-input-section">
+                            <label>
+                                State
+                            </label>
+                            <input
+                                type="text"
+                                value={state}
+                                onChange={(e) => setState(e.target.value)}
+                            />
+                            <div>{errors.state && <p className="create-car-validator">{errors.state}</p>}</div>
+                        </div>
+                        <div className="create-car-input-section">
+                            <label>
+                                Mileage
+                            </label>
+                            <input
+                                type="number" step='1'
+                                value={mileage}
+                                onChange={(e) => setMileage(e.target.value)}
+                            />
+                            <div>{errors.mileage && <p className="create-car-validator">{errors.mileage}</p>}</div>
+                        </div>
+                        <div className="create-car-input-section">
+                            <label>
+                                Description
+                            </label>
+                            <textarea
+                                className="create-car-textarea"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                            <div>{errors.description && <p className="create-car-validator">{errors.description}</p>}</div>
+                        </div>
                     </div>
-                    <div className="create-car-input-section">
-                        <label>
-                            State
-                        </label>
-                        <input
-                            type="text"
-                            value={state}
-                            onChange={(e) => setState(e.target.value)}
-                        />
-                        <div>{errors.state && <p className="create-car-validator">{errors.state}</p>}</div>
-                    </div>
-                    <div className="create-car-input-section">
-                        <label>
-                            Mileage
-                        </label>
-                        <input
-                            type="number" step='1'
-                            value={mileage}
-                            onChange={(e) => setMileage(e.target.value)}
-                        />
-                        <div>{errors.mileage && <p className="create-car-validator">{errors.mileage}</p>}</div>
-                    </div>
-                    <div className="create-car-input-section">
-                        <label>
-                            Description
-                        </label>
-                        <textarea
-                            className="create-car-textarea"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                        <div>{errors.description && <p className="create-car-validator">{errors.description}</p>}</div>
-                    </div>
-
                     <button
                         className={isDisabled ? "create-car-submit-button-disable" : "create-car-submit-button-active"}
                         type="submit"
