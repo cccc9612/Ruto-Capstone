@@ -6,7 +6,7 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
-import carReducer from "../redux/car";
+import carReducer from "./car"
 
 const rootReducer = combineReducers({
   session: sessionReducer,

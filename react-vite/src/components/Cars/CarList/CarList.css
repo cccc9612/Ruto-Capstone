@@ -1,9 +1,10 @@
 .car-info-div {
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: 170px;
     width: 430px;
+    /* padding: 5px 5px 5px 5px; */
 }
 
 .car-list-container {

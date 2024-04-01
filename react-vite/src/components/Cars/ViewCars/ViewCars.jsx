@@ -8,21 +8,24 @@ import "./ViewCars.css"
 function ViewCars() {
   const dispatch = useDispatch();
   const carState = useSelector(state => state.car);
-  console.log("carState in component=========>", carState)
-
   const cars = Object.values(carState?.Cars);
-  console.log("cars in component================>", cars)
 
   useEffect(() => {
     dispatch(getCarsThunk())
   }, [dispatch])
 
+  console.log('-----------', cars)
+  console.log('........', carState)
+  console.log('>>>>>>>>>>', Object.values(carState?.Cars));
+
+
   return (
     <section>
       <div className="cars-container">
+
         {cars?.map((car) => {
           return (
-            <NavLink key={car.id} to={`/cars/${car.id}`} className="product-item-card-navlink">
+            <NavLink key={car.id} to={`/cars/${car.id}`} className="car-item-card-navlink">
               <CarList car={car} />
             </NavLink>
           )

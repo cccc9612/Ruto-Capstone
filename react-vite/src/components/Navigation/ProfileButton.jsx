@@ -68,7 +68,7 @@ function ProfileButton() {
                 </NavLink>
               </div>
               <div className="profile-dropdown-manage-div">
-                <NavLink to={'/cars/manage'} onClick={toggleMenu}>
+                <NavLink to={'/cars/current'} onClick={toggleMenu}>
                   <li>Manage Cars</li>
                 </NavLink>
                 <NavLink to={'/reviews/manage'} onClick={toggleMenu}>
