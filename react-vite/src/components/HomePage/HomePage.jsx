@@ -25,9 +25,6 @@ export const HomePage = () => {
     const [until, setUntil] = useState(moment().add(7, 'days').format("YYYY-MM-DD"))
 
 
-    const navigateToCarModel = (model) => {
-        navigate(`/cars?model=${model}`);
-    };
 
     return (
         <div className="homepage">

@@ -1,23 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { useModal } from "../../../context/Modal";
+import { useEffect } from "react";
+// import { useState } from "react";
+// import { useModal } from "../../../context/Modal";
 import { getACarThunk } from "../../../redux/car";
 import { useParams, Link } from "react-router-dom";
 import "./CarDetails.css"
 import defaultImage from '../CarList/default-car-img.png'
-import CreateReviews from "../../Reviews/CreateReviews";
-import UpdateReviews from "../../Reviews/UpdateReviews/UpdateReviews";
-import DeleteReviews from "../../Reviews/DeleteReviews";
+// import CreateReviews from "../../Reviews/CreateReviews";
+// import UpdateReviews from "../../Reviews/UpdateReviews/UpdateReviews";
+// import DeleteReviews from "../../Reviews/DeleteReviews";
 
 function CarDetails() {
     const dispatch = useDispatch();
     const { carId } = useParams();
-    const { setModalContent } = useModal();
+    // const { setModalContent } = useModal();
 
-    const currentUser = useSelector(state => state.session.user);
+    // const currentUser = useSelector(state => state.session.user);
     const carState = useSelector(state => state.car);
     const car = carState.Cars[carId]
-    const session = useSelector(state => state.session);
+    // const session = useSelector(state => state.session);
     // const reviewArray = car?.reviews;
     // const [postReview, setPostReview] = useState(false);
     // const [updateReview, setUpdateReview] = useState(false);

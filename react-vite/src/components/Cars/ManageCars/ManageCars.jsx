@@ -1,4 +1,5 @@
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
+// import {useParams } from "react-router-dom"
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useModal } from "../../../context/Modal";
@@ -16,6 +17,9 @@ function ManageCars() {
     const carState = useSelector(state => state.car);
     const cars = Object.values(carState?.Cars)
     const currentUser = useSelector(state => state.session.user)
+
+    // console.log(">>>>>>>>>>", currentUser.id)
+
 
     // const userCars = Object.values(carState?.Cars).filter(car => car.userId === currentUser?.id);
     // console.log('car.userId', carState.id)
