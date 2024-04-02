@@ -21,6 +21,21 @@ class Review(db.Model):
     car = db.relationship("Car", back_populates="reviews")
 
 
+    # @property
+    # def product(self):
+    #     return {
+    #         'id': self.car.id,
+    #         'user_id': self.car.user_id,
+    #         'price': self.car.price,
+    #         'year': self.car.year,
+    #         'model': self.car.model,
+    #         'make': self.car.make,
+    #         'city': self.car.city,
+    #         'state': self.car.state,
+    #         'mileage': self.car.mileage,
+    #         'description': self.car.description
+    #     }
+
     def to_dict(self):
         return {
       "id": self.id,

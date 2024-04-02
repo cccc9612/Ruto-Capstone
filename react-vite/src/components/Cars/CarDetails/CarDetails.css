@@ -1,0 +1,46 @@
+.car-show-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car-details-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.car-details-container img {
+    width: 300px;
+    margin-right: 2rem;
+}
+
+.car-details-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.car-details-container p {
+    margin: 0.5rem 0;
+}
+
+.back-button {
+    text-decoration: none;
+    background-color: #4caf50;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}
+
+
+.car-details-container div h3 {
+    margin: 0.5rem 0;
+}
+
+.car-details-container div p {
+    margin: 0;
+}

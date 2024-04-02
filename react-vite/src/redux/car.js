@@ -1,7 +1,7 @@
-const GET_CARS = 'car/getCarsThunk';
-const GET_A_CAR = 'car/getACarThunk';
+const GET_CARS = 'car/getCars';
+const GET_A_CAR = 'car/getACar';
 const UPDATE_CAR = 'car/updateCar';
-const DELETE_CAR = 'car/deleteCar'
+const DELETE_CAR = 'car/deleteCar';
 
 
 /* ========== Action Creators ========== */

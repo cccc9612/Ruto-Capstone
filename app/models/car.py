@@ -27,13 +27,6 @@ class Car(db.Model):
     reviews = db.relationship("Review", back_populates="car", cascade='all, delete')
     favorites = db.relationship("Favorite", back_populates="car", cascade='all, delete')
 
-    # @property
-    # def user(self):
-    #     return {
-    #         'id': self.owner.id,
-    #         'first_name': self.owner.first_name,
-    #         'last_name' : self.owner.last_name,
-    #     }
 
     # @property
     # def reviews(self):
