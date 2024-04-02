@@ -71,13 +71,21 @@
   margin: 2px 2px 2px 2px;
   position: absolute;
   right: 1rem;
-  width: 200px;
+  width: 180px;
+  padding: 1.5%;
 }
 
 .profile-dropdown li {
   cursor: pointer;
-  padding: .5rem;
   border-radius: 5px;
+}
+
+.profile-dropdown p,
+a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
 }
 
 .profile-dropdown-links-div {
@@ -85,7 +93,6 @@
 }
 
 .profile-dropdown-user-div {
-  padding: 1rem 0;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
@@ -101,4 +108,9 @@
 
 .profile-dropdown li:hover {
   background-color: var(--hover)
+}
+
+.dropdown-icon {
+  font-size: large;
+  margin-right: 8px;
 }

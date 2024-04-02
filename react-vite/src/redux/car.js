@@ -1,4 +1,5 @@
 const GET_CARS = 'car/getCars';
+const GET_CURRENTUSER_CARS = 'cars/getCurrentUserCars'
 const GET_A_CAR = 'car/getACar';
 const UPDATE_CAR = 'car/updateCar';
 const DELETE_CAR = 'car/deleteCar';
@@ -10,6 +11,13 @@ const getCarsAction = (cars) => {
     return {
         type: GET_CARS,
         payload: cars
+    }
+}
+
+const getCurrentUserCars = (cars) => {
+    return {
+        type: GET_CURRENTUSER_CARS,
+        cars
     }
 }
 
@@ -67,8 +75,12 @@ export const getCurrentCarThunk = () => async (dispatch) => {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
-    const data = await response.json()
-    dispatch(getCarsAction(data.cars))
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(getCurrentUserCars(data))
+        return data
+    }
 }
 
 
@@ -115,6 +127,13 @@ const carReducer = (state = initialState, action) => {
             const newObj = {};
             action.payload.forEach(car => newObj[car.id] = { ...car });
             return { ...state, Cars: { ...newObj } }
+        }
+        case GET_CURRENTUSER_CARS: {
+            const newState = {}
+            action.cars.Cars.forEach((car) => (
+                newState[car.id] = car
+            ))
+            return newState
         }
         case GET_A_CAR: {
             return { ...state, Cars: { ...state.Cars, [action.payload.id]: action.payload } }

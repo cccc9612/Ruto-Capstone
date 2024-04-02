@@ -6,6 +6,17 @@ import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { NavLink } from "react-router-dom";
+import { MdFavoriteBorder } from "react-icons/md";
+import { PiRoadHorizon } from "react-icons/pi";
+import { IoCarOutline } from "react-icons/io5";
+import { MdOutlineRateReview } from "react-icons/md";
+import { CiLogout } from "react-icons/ci";
+import { MdManageSearch } from "react-icons/md";
+
+
+
+
+
 
 function ProfileButton() {
   const dispatch = useDispatch();
@@ -56,27 +67,27 @@ function ProfileButton() {
               <div className="profile-dropdown-links-div">
                 <NavLink to={`/users/${user.id}/favorites`}
                   onClick={toggleMenu}>
-                  <li>Favorites</li>
+                  <p><MdFavoriteBorder className="dropdown-icon" /> Favorites</p>
                 </NavLink>
-                <NavLink to={`trips`} onClick={toggleMenu}>
-                  <li>Trips</li>
+                <NavLink to={`/users/trips`} onClick={toggleMenu}>
+                  <p><PiRoadHorizon className="dropdown-icon" /> Trips</p>
                 </NavLink>
               </div>
               <div className="profile-dropdown-user-div">
                 <NavLink to={`/cars/new`} onClick={toggleMenu}>
-                  <li>Add a car</li>
+                  <p><IoCarOutline className="dropdown-icon" /> Add a car</p>
                 </NavLink>
               </div>
               <div className="profile-dropdown-manage-div">
                 <NavLink to={'/cars/current'} onClick={toggleMenu}>
-                  <li>Manage Cars</li>
+                  <p><MdManageSearch className="dropdown-icon" /> Manage Cars</p>
                 </NavLink>
                 <NavLink to={'/reviews/manage'} onClick={toggleMenu}>
-                  <li>Manage Reviews</li>
+                  <p><MdOutlineRateReview className="dropdown-icon" /> Manage Reviews</p>
                 </NavLink>
               </div>
               <div className="profile-dropdown-logout-div">
-                <li onClick={logout}>Log Out</li>
+                <p onClick={logout}><CiLogout className="dropdown-icon" /> Log Out</p>
               </div>
             </>
           ) : (

@@ -1,8 +1,6 @@
 .create-car-form-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
 }
 
 .create-car-container {
@@ -13,6 +11,14 @@
     max-width: 800px;
 
 }
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    height: 100vh;
+}
+
 
 .create-form-left,
 .create-form-right {
@@ -49,13 +55,14 @@
 }
 
 .create-car-submit-button-disable,
-.create-car-submit-button-active {
+.create-car-submit-button-active,
+.create-car-submit-button-cancel {
     padding: 10px 20px;
-
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    margin: 7px;
 }
 
 .create-car-submit-button-disable {
@@ -64,8 +71,9 @@
     opacity: 0.7;
 }
 
-.create-car-submit-button-active {
-    background-color: #007bff;
+.create-car-submit-button-active,
+.create-car-submit-button-cancel {
+    background-color: #593cfb;
     color: #fff;
 }
 

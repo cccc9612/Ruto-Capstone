@@ -37,6 +37,10 @@ function CreateCars() {
             validationObj.model = "Model is required"
         }
 
+        if (make.length < 1) {
+            validationObj.make = "Make is required"
+        }
+
         if (city.length < 1) {
             validationObj.city = "City is required"
         }
@@ -54,8 +58,11 @@ function CreateCars() {
         }
 
         setErrors(validationObj)
-    }, [price, year, model, city, state, mileage, description])
+    }, [price, year, model, make, city, state, mileage, description])
 
+    const handleCancel = () => {
+        navigate("/cars/current");
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -77,10 +84,10 @@ function CreateCars() {
         }
     }
 
-    const isDisabled = !price || !year || !mileage || model.length < 1 || city.length < 1 || state.length < 1 || description.length < 20;
+    const isDisabled = !price || !year || !mileage || model.length < 1 || make.length < 1 || city.length < 1 || state.length < 1 || description.length < 20;
 
     return (
-        <div >
+        <div className="center-container">
             <form
                 onSubmit={handleSubmit}
                 encType="multipart/form-data"
@@ -180,14 +187,23 @@ function CreateCars() {
                             <div>{errors.description && <p className="create-car-validator">{errors.description}</p>}</div>
                         </div>
                     </div>
-                    <button
-                        className={isDisabled ? "create-car-submit-button-disable" : "create-car-submit-button-active"}
-                        type="submit"
-                        disabled={isDisabled}
-                    >
-                        Submit
-                    </button>
-                    {(imageLoading) && <p>Loading...</p>}
+                    <div>
+                        <button
+                            className="create-car-submit-button-cancel"
+                            type="button"
+                            onClick={handleCancel}
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            className={isDisabled ? "create-car-submit-button-disable" : "create-car-submit-button-active"}
+                            type="submit"
+                            disabled={isDisabled}
+                        >
+                            Submit
+                        </button>
+                        {(imageLoading) && <p>Loading...</p>}
+                    </div>
                 </div>
             </form>
         </div>

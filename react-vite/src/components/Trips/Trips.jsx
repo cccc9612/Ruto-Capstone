@@ -1,11 +1,11 @@
-function Favorites() {
+function Trips() {
     // const navigate = useNavigate()
 
     return (
-        <div className="favorites-container">
+        <div className="trips-container">
             <h2>Feature Coming Soon...</h2>
         </div>
     )
 
 }
-export default Favorites;
+export default Trips;
