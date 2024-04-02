@@ -17,8 +17,9 @@ function ManageCars() {
     const carState = useSelector(state => state.car);
     const cars = Object.values(carState?.Cars)
     const currentUser = useSelector(state => state.session.user)
+    const carsObj = useSelector(state => state.session.user?.cars)
 
-    // console.log(">>>>>>>>>>", currentUser.id)
+    console.log(">>>>>>>>>>", carsObj)
 
 
     // const userCars = Object.values(carState?.Cars).filter(car => car.userId === currentUser?.id);
