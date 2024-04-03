@@ -29,6 +29,12 @@ function UpdateCar() {
         dispatch(getACarThunk(carId))
     }, [dispatch, carId])
 
+
+    const handleCancel = () => {
+        navigate("/cars/current");
+    };
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -50,7 +56,7 @@ function UpdateCar() {
     return (
         <div>
             <div className="update-car-title">
-                <h1>Update your car</h1>
+                <h1>Update Your Car</h1>
             </div>
             <form
                 onSubmit={handleSubmit}
@@ -153,6 +159,13 @@ function UpdateCar() {
                         disabled={isDisabled}
                     >
                         Submit
+                    </button>
+                    <button
+                        className="update-car-cancel-button-active"
+                        type="button"
+                        onClick={handleCancel}
+                    >
+                        Cancel
                     </button>
                 </div>
             </form>

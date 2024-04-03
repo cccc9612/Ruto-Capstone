@@ -82,7 +82,7 @@ function ProfileButton() {
                 <NavLink to={'/cars/current'} onClick={toggleMenu}>
                   <p><MdManageSearch className="dropdown-icon" /> Manage Cars</p>
                 </NavLink>
-                <NavLink to={'/reviews/manage'} onClick={toggleMenu}>
+                <NavLink to={'/reviews/current'} onClick={toggleMenu}>
                   <p><MdOutlineRateReview className="dropdown-icon" /> Manage Reviews</p>
                 </NavLink>
               </div>
@@ -92,16 +92,18 @@ function ProfileButton() {
             </>
           ) : (
             <>
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
+              <div className="open-modal-menu-item">
+                <OpenModalMenuItem
+                  itemText="Log In"
+                  onItemClick={closeMenu}
+                  modalComponent={<LoginFormModal />}
+                />
+                <OpenModalMenuItem
+                  itemText="Sign Up"
+                  onItemClick={closeMenu}
+                  modalComponent={<SignupFormModal />}
+                />
+              </div>
             </>
           )}
         </ul>

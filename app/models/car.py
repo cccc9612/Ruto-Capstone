@@ -34,7 +34,7 @@ class Car(db.Model):
 
     def to_dict(self):
         returning = dict()
-        owner = self.owner.username
+        owner = self.owner.id
         returning['owner']=owner,
         returning['id']= self.id
         returning['price']= self.price

@@ -17,14 +17,11 @@ function ManageCars() {
     const carState = useSelector(state => state.car);
     const cars = Object.values(carState?.Cars)
     const currentUser = useSelector(state => state.session.user)
-    const carsObj = useSelector(state => state.session.user?.cars)
+    // const carsObj = useSelector(state => state.cars
 
-    console.log(">>>>>>>>>>", carsObj)
+    // console.log("carsobj >>>>>>>>>>", carState)
+    // console.log("cars >>>>>>>>>>", cars)
 
-
-    // const userCars = Object.values(carState?.Cars).filter(car => car.userId === currentUser?.id);
-    // console.log('car.userId', carState.id)
-    // console.log('currentuserId', currentUser.id)
 
     useEffect(() => {
         if (!currentUser) navigate('/');
@@ -38,9 +35,9 @@ function ManageCars() {
 
 
     return (
-        <div className="manage-your-car-whole-container">
+        <div className="manage-your-car-container">
             <h1 className="manage-your-car-h1">Manage Your Cars</h1>
-            <button className="create-car-button"><Link to={`/cars/new`} className="create-car-link">create a new car</Link></button>
+            <button className="create-car-button"><Link to={`/cars/new`} className="create-car-link">Create A New Car</Link></button>
             <section>
                 <div className="cars-container">
                     {cars?.map((car) => {

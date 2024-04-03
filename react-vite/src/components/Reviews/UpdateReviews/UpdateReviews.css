@@ -1,0 +1,62 @@
+.update-review-modal-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-review-modal-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+.update-review-textarea-container {
+    position: relative;
+}
+
+.update-review-textarea-container textarea {
+    width: 95%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+}
+
+.update-review-validator {
+    position: absolute;
+    margin: 5px 5px;
+    left: 0;
+    font-size: 14px;
+    color: #f44336;
+}
+
+.update-review-submit-button-disable,
+.update-review-submit-button-active {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4caf50;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-review-submit-button-disable {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.update-review-submit-button-active:hover {
+    background-color: #2e7d32;
+}

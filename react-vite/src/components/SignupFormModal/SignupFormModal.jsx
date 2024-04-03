@@ -1,23 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
 import "./SignupForm.css";
 
+
 function SignupFormModal() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [first_name, setFirst_Name] = useState("");
   const [last_name, setLast_Name] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setHasSubmitted(true);
     if (password !== confirmPassword) {
       return setErrors({
         confirmPassword:
@@ -42,9 +45,22 @@ function SignupFormModal() {
     }
   };
 
+  useEffect(() => {
+    const err = {};
+    setHasSubmitted(false);
+    if (first_name.length === 0) err.first_name = 'First name is required';
+    if (last_name.length === 0) err.last_name = 'Last name is required';
+    if (username.length < 4) err.username = 'Username must be 4 or more characters';
+    if (email.length === 0) err.email = 'Email is required';
+    if (password.length < 6) err.password = "Password must be 6 or more characters";
+    if (confirmPassword.length < 0) err.confirmPassword = "Confirmed password must be 6 or more characters"
+    setErrors(err);
+  }, [first_name, last_name, username, email, password, confirmPassword])
+
+
   return (
     <>
-      {errors.server && <p>{errors.server}</p>}
+      {hasSubmitted && errors.server && <p>{errors.server}</p>}
       <form onSubmit={handleSubmit} className="signup-form">
         <h1>Welcome to Ruto</h1>
         <label>

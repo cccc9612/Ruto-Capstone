@@ -14,9 +14,9 @@ function ViewCars() {
     dispatch(getCarsThunk())
   }, [dispatch])
 
-  console.log('-----------', cars)
-  console.log('........', carState)
-  console.log('>>>>>>>>>>', Object.values(carState?.Cars));
+  // console.log('-----------', cars)
+  // console.log('........', carState)
+  // console.log('>>>>>>>>>>', Object.values(carState?.Cars));
 
 
   return (

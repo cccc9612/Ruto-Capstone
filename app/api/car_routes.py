@@ -39,11 +39,14 @@ def car_review(id):
 
 
 # Get all cars owned by the current user
-@car_routes.route('/current')
+@car_routes.route('/current', methods=["GET"])
 @login_required
 def currentUserCars():
+    # print('Hiiiiiiiiiiiii')
     user = current_user.to_dict()
-    allCars = Car.query.join(User).filter(user['id']==User.id).all()
+    allCars = Car.query.join(User).filter(User.id == user['id']).all()
+    # print("allCars-------------", allCars)
+    # print ("allcars-value >>>>>>>>>>",[car.to_dict() for car in allCars] )
     return {'cars': [car.to_dict() for car in allCars]}
 
 

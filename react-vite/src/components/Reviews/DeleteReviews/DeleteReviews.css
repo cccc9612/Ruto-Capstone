@@ -1,0 +1,50 @@
+.delete-review-modal-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.delete-review-modal-container h1 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.delete-review-modal-container p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #424040;
+}
+
+.delete-review-yes-button,
+.delete-review-no-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.delete-review-yes-button {
+    background-color: #ec7682;
+    color: #fff;
+}
+
+.delete-review-no-button {
+    background-color: #80bbfa;
+    color: #fff;
+}
+
+
+.delete-review-no-button:hover {
+    background-color: #2c69eb;
+}
+
+.delete-review-yes-button:hover {
+    background-color: #f23c3c;
+}

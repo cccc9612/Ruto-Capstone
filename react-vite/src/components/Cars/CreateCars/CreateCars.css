@@ -34,7 +34,6 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    /* Make labels bold */
 }
 
 .create-car-input-section input,
@@ -45,7 +44,6 @@
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
-    /* Increase font size for better readability */
 }
 
 .create-car-validator {

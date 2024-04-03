@@ -1,10 +1,18 @@
 from flask import Blueprint, render_template, redirect,request,jsonify
 from flask_login import current_user, login_required
 from sqlalchemy import desc
-from app.models import Review, db
+from app.models import Review, db, Car, User
 from app.forms.review_form import CreateReviewForm
 
 review_routes = Blueprint('review_routes', __name__)
+
+# Get all reviews owned by the current user
+@review_routes.route('/current', methods=["GET"])
+@login_required
+def currentUserReviews():
+    user = current_user.to_dict()
+    allReviews = Review.query.join(User).filter(User.id == user['id']).all()
+    return {'reviews': [review.to_dict() for review in allReviews]}
 
 
 # Update a review

@@ -10,6 +10,8 @@ import UpdateCar from '../components/Cars/UpdateCar/UpdateCar';
 import ManageCars from '../components/Cars/ManageCars/ManageCars';
 import Favorites from '../components/Favorites/Favorites';
 import Trips from '../components/Trips/Trips';
+import ManageReviews from '../components/Reviews/ManageReviews/ManageReviews';
+
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ export const router = createBrowserRouter([
         element: <ManageCars />
       },
       {
+        path: "/reviews/current",
+        element: <ManageReviews />
+      },
+      {
         path: "/cars/new",
         element: <CreateCars />
       },
@@ -39,6 +45,10 @@ export const router = createBrowserRouter([
         path: "/cars/:carId/edit",
         element: <UpdateCar />
       },
+      // {
+      //   path: "/reviews/:carId/edit",
+      //   element: <UpdateReviews />
+      // },
       {
         path: "/users/:userId/favorites",
         element: <Favorites />

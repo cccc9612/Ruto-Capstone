@@ -26,14 +26,14 @@ function CreateReviews({ carId, postReview }) {
             encType="multipart/form-data"
             className="create-review-container"
         >
-            <h1>Add Your Review Here</h1>
+            <h1>Post Review Here</h1>
             <div className="create-review-input-section">
                 <textarea
-                    placeholder="Minimum 10 characters required."
+                    placeholder="Let others know about your experience!"
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
                 />
-                <div>{review?.length < 10 && <p className="create-review-validator">review needs 10 or more characters</p>}</div>
+                <div>{review?.length < 10 && <p className="create-review-validator">Minumum 10 characters required</p>}</div>
             </div>
             <button
                 className={isDisabled ? "create-review-submit-button-disable" : "create-review-submit-button-active"}

@@ -17,8 +17,8 @@ function DeleteCar({ carId }) {
         <div className="delete-car-modal-container">
             <h1>Confirm Delete</h1>
             <p>Are you sure you want to delete this car?</p>
-            <button className="delete-car-yes-button" onClick={handleDelete}>Yes (Delete Car)</button>
-            <button className="delete-car-no-button" onClick={closeModal}>No (Keep Car)</button>
+            <button className="delete-car-yes-button" onClick={handleDelete}>Yes</button>
+            <button className="delete-car-no-button" onClick={closeModal}>No</button>
         </div>
     )
 }

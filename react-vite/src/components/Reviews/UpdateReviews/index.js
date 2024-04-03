@@ -1,3 +1,3 @@
-import UpdateReview from './UpdateReviews'
+import UpdateReviews from './UpdateReviews'
 
-export default UpdateReview;
+export default UpdateReviews;

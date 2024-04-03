@@ -1,7 +1,7 @@
 .cars-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-
+    text-align: center;
     gap: 20px;
 }
 
@@ -31,15 +31,17 @@
 
 .create-car-button {
     display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    color: #fff;
+    margin: 20px;
+    padding: 10px 30px;
+    font-weight: bolder;
+    color: #fdfdfd;
     text-decoration: none;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    background-color: rgba(173, 195, 218, 0.637);
 }
 
 .create-car-button:hover {

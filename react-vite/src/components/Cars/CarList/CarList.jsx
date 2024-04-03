@@ -9,7 +9,7 @@ function CarList({ car }) {
         <div className="car-card-container">
             <img src={defaultImage} alt='default-img' style={{ width: "200px" }} />
             <div className="car-info-div">
-                <p>{car.make}</p>
+                <p>{car.make} ({car.year})</p>
                 <p>{car.model}</p>
                 <p>${car.price}</p>
                 <p>{car.city}, {car.state}</p>

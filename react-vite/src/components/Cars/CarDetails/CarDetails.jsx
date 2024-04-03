@@ -7,54 +7,39 @@ import { useParams, Link } from "react-router-dom";
 import "./CarDetails.css"
 import defaultImage from '../CarList/default-car-img.png'
 // import CreateReviews from "../../Reviews/CreateReviews";
-// import UpdateReviews from "../../Reviews/UpdateReviews/UpdateReviews";
+// import UpdateReviews from "../../Reviews/UpdateReviews";
 // import DeleteReviews from "../../Reviews/DeleteReviews";
+// import CarReviews from "../../Reviews/CarReviews/CarReviews";
 
 function CarDetails() {
     const dispatch = useDispatch();
     const { carId } = useParams();
     // const { setModalContent } = useModal();
-
-    // const currentUser = useSelector(state => state.session.user);
-    const carState = useSelector(state => state.car);
-    const car = carState.Cars[carId]
+    const currentUser = useSelector(state => state.session.user);
     // const session = useSelector(state => state.session);
-    // const reviewArray = car?.reviews;
-    // const [postReview, setPostReview] = useState(false);
-    // const [updateReview, setUpdateReview] = useState(false);
-    // const [deleteReview, setDeleteReview] = useState(false);
+
+    const carState = useSelector(state => state.car);
+    const car = carState.Cars[carId];
+
+    // const reviewState = useSelector(state => state.reviews);
+    // const review = reviewState.Reviews()
 
 
-
-    console.log('----------->>>>>', car)
+    // console.log('----------->>>>>', reviewState)
 
 
     useEffect(() => {
         dispatch(getACarThunk(carId))
     }, [dispatch, carId])
 
-    // const ishidden = () => {
-    //     if (!currentUser) return true;
-    //     if (currentUser && reviewArray) {
-    //         for (let review of reviewArray) {
-    //             if (review.user_id === currentUser.id) return true
-    //         }
-    //         return false;
-    //     }
-    // }
+
+    // const owner = currentUser?.id == car.owner;
+    // console.log("car.owner------", car.owner)
+    // console.log("currentuser------", currentUser.id)
+    // console.log(car.owner == currentUser.id)
 
 
-    // const handleDelete = (reviewId) => {
-    //     setModalContent(<DeleteReviews reviewId={reviewId} deleteReview={() => setDeleteReview(prev => !prev)} />)
-    // }
 
-    // const handleReview = (carId) => {
-    //     setModalContent(<CreateReviews carId={carId} postReview={() => setPostReview(prev => !prev)} />)
-    // }
-
-    // const handleUpdate = (reviewId, reviewContent) => {
-    //     setModalContent(<UpdateReviews reviewId={reviewId} reviewText={reviewContent} updateReview={() => setUpdateReview(prev => !prev)} />)
-    // }
 
     return (
         <div className="car-show-page-container">
@@ -72,23 +57,20 @@ function CarDetails() {
                         <p>{car?.description}</p>
                     </div>
                 </div>
-                {/* <div className="all-reviews-container">
-                    <div className="post-your-review-container">
-                        {ishidden() ? null : (<button className="post-your-review-button" onClick={() => handleReview(carId)}>Post Your Review</button>)}
+                <div className="car-detail-host-div">
+                    <div className="car-detail-host-info">
+                        <h4>Hosted By</h4>
+                        <h3>{currentUser.firstName}</h3>
                     </div>
-                    {car?.reviews.map((review) => {
-                        return (
+                </div>
+                <div className="all-reviews-container">
 
-                            <div key={review.id} className="single-review-container">
-                                <h4>Review by {review?.user.first_name}</h4>
-                                <p>{review?.review}</p>
-                                {currentUser && currentUser?.id === review?.user_id && <button className="delete-review-button" onClick={() => handleDelete(review?.id)}>Delete</button>}
-                                {currentUser && currentUser?.id === review?.user_id && <button className="update-review-button" onClick={() => handleUpdate(review?.id, review?.review, review?.rating)}>Update</button>}
-                            </div>
-                        )
-                    })}
+                    <div>
+                        <h4 style={{ color: "#808080" }}>REVIEWS</h4>
 
-                </div> */}
+                    </div>
+                </div>
+
             </div>
             <Link to="/cars" className="back-button">Back to Cars</Link>
         </div>

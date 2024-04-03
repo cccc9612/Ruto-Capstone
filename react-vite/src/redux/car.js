@@ -17,7 +17,7 @@ const getCarsAction = (cars) => {
 const getCurrentUserCars = (cars) => {
     return {
         type: GET_CURRENTUSER_CARS,
-        cars
+        payload: cars
     }
 }
 
@@ -52,7 +52,6 @@ export const getCarsThunk = () => async (dispatch) => {
         headers: { 'Content-Type': 'application/json' }
     });
     const data = await response.json();
-    console.log('log data cars -------', data.cars)
     dispatch(getCarsAction(data.cars));
 
 }
@@ -71,14 +70,15 @@ export const getACarThunk = (carId) => async (dispatch) => {
 
 
 export const getCurrentCarThunk = () => async (dispatch) => {
-    const response = await fetch('api/cars/current', {
+    const response = await fetch('/api/cars/current', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
-
+    console.log('RESPONSE', response)
     if (response.ok) {
         const data = await response.json()
-        dispatch(getCurrentUserCars(data))
+        dispatch(getCurrentUserCars(data.cars))
+        console.log('DATA >>>>>>>', data.cars)
         return data
     }
 }
@@ -129,11 +129,9 @@ const carReducer = (state = initialState, action) => {
             return { ...state, Cars: { ...newObj } }
         }
         case GET_CURRENTUSER_CARS: {
-            const newState = {}
-            action.cars.Cars.forEach((car) => (
-                newState[car.id] = car
-            ))
-            return newState
+            const newState = {};
+            action.payload.forEach(car => newState[car.id] = { ...car });
+            return { ...state, Cars: { ...newState } }
         }
         case GET_A_CAR: {
             return { ...state, Cars: { ...state.Cars, [action.payload.id]: action.payload } }

@@ -1,29 +1,23 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
-import { getAReviewThunk, updateReviewThunk } from "../../../redux/review";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { updateReviewThunk } from "../../../redux/review";
 import { useModal } from "../../../context/Modal";
 import "./UpdateReviews.css"
 
 
-function UpdateReview({ reviewId, reviewContent, postReview }) {
+function UpdateReviews(reviewId, reviewContent, postReview) {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
-    console.log("review in component========", reviewContent)
 
-    // const [review, setReview] = useState(targetReview?.review || "")
     const [review, setReview] = useState(reviewContent)
 
-
-
-    // useEffect(() => {
-    //     dispatch(getSingleReviewThunk(reviewId))
-    // }, [dispatch, reviewId])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
+
         formData.append("review", review);
-        await dispatch(updateReviewThunk(formData, reviewId));
+        await dispatch(updateReviewThunk(formData, reviewContent));
         postReview();
         closeModal();
     }
@@ -34,26 +28,26 @@ function UpdateReview({ reviewId, reviewContent, postReview }) {
         <form
             onSubmit={handleSubmit}
             encType="multipart/form-data"
-            className="create-review-modal-container"
+            className="update-review-modal-container"
         >
-            <h1>Update your review</h1>
-            <div className="create-review-textarea-container">
+            <h1>Update Your Review</h1>
+            <div className="update-review-textarea-container">
                 <textarea
-                    placeholder="Leave your review here..."
+                    placeholder="Minimum 10 characters required :)"
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
                 />
-                <div>{review?.length < 10 && <p className="update-review-validator">review needs 10 or more characters</p>}</div>
+                <div>{review?.length < 10 && <p className="update-review-validator">Tell us more about your thoughts...?</p>}</div>
             </div>
             <button
-                className={isDisabled ? "create-review-submit-button-disable" : "create-review-submit-button-active"}
+                className={isDisabled ? "update-review-submit-button-disable" : "update-review-submit-button-active"}
                 type="submit"
                 disabled={isDisabled}
             >
-                Submit Your Review
+                Submit
             </button>
         </form>
     )
 }
 
-export default UpdateReview;
+export default UpdateReviews;
