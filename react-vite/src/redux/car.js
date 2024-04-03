@@ -62,7 +62,7 @@ export const getACarThunk = (carId) => async (dispatch) => {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
-
+    console.log(response)
     const data = await response.json()
     dispatch(getACarAction(data))
     return data
@@ -74,11 +74,11 @@ export const getCurrentCarThunk = () => async (dispatch) => {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     })
-    console.log('RESPONSE', response)
+    // console.log('RESPONSE', response)
     if (response.ok) {
         const data = await response.json()
         dispatch(getCurrentUserCars(data.cars))
-        console.log('DATA >>>>>>>', data.cars)
+        // console.log('DATA >>>>>>>', data.cars)
         return data
     }
 }

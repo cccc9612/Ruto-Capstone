@@ -10,7 +10,7 @@ function CarReviews() {
     const dispatch = useDispatch()
     const { carId } = useParams()
     const reviewsObj = useSelector((state) => state.reviews)
-    const reviews = Object.values(reviewsObj)
+    const reviews = reviewsObj.Reviews
     const sessionUser = useSelector((state) => state.session.user)
 
     useEffect(() => {

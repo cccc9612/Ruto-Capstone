@@ -30,7 +30,18 @@ class Car(db.Model):
 
     # @property
     # def reviews(self):
-    #     return [review.to_dict() for review in self.reviews]
+    #     return {
+    #         'id': self.reviews.id,
+    #         'review': self.reviews.review
+    #     }
+
+    # @property
+    # def users(self):
+    #     return {
+    #         'id': self.owner.id,
+    #         'first_name': self.owner.first_name,
+    #         'last_name': self.owner.last_name
+    #     }
 
     def to_dict(self):
         returning = dict()

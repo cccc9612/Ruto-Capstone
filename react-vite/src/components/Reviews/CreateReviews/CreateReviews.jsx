@@ -4,18 +4,21 @@ import { useDispatch } from "react-redux";
 import { createReviewThunk } from "../../../redux/review";
 import "./CreateReviews.css"
 
-function CreateReviews({ carId, postReview }) {
+function CreateReviews({ carId, reRenderOnPost }) {
     const { closeModal } = useModal();
     const dispatch = useDispatch();
     const [review, setReview] = useState("")
 
     const handleSubmit = async (e) => {
+        console.log("come in please")
         e.preventDefault();
         const formData = new FormData();
         formData.append("review", review);
+        console.log("FormData", FormData)
         await dispatch(createReviewThunk(formData, carId));
-        postReview();
+        console.log("are you here")
         closeModal();
+        reRenderOnPost()
     }
 
     const isDisabled = review.length < 10;

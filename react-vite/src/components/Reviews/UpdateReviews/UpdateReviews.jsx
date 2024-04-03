@@ -5,21 +5,27 @@ import { useModal } from "../../../context/Modal";
 import "./UpdateReviews.css"
 
 
-function UpdateReviews(reviewId, reviewContent, postReview) {
+
+function UpdateReviews({ reviewId, reviewContent, reRenderOnUpdate }) {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
+    // const { carId } = useParams();
 
     const [review, setReview] = useState(reviewContent)
+    console.log(".........>>>>>>>", reviewContent)
+
 
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         const formData = new FormData();
 
         formData.append("review", review);
-        await dispatch(updateReviewThunk(formData, reviewContent));
-        postReview();
+        await dispatch(updateReviewThunk(formData, reviewId));
         closeModal();
+        reRenderOnUpdate();
+
     }
 
     const isDisabled = review?.length < 10;
@@ -31,7 +37,7 @@ function UpdateReviews(reviewId, reviewContent, postReview) {
             className="update-review-modal-container"
         >
             <h1>Update Your Review</h1>
-            <div className="update-review-textarea-container">
+            <div className="update-review-input-box">
                 <textarea
                     placeholder="Minimum 10 characters required :)"
                     value={review}

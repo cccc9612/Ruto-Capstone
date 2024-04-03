@@ -35,24 +35,25 @@ const updateReviewAction = (review) => {
     }
 }
 
-const deleteReviewAction = (reviewId) => {
+const deleteReviewAction = (reviewToDelete) => {
     return {
         type: DELETE_REVIEW,
-        payload: reviewId
+        payload: reviewToDelete
     }
 }
 
 
+
 /* ========== Thunks ========== */
 
-export const getAReviewThunk = (reviewId) => async (dispatch) => {
-    const response = await fetch(`/api/${reviewId}/reviews`, {
+export const getAReviewThunk = (carId) => async (dispatch) => {
+    const response = await fetch(`/api/cars/${carId}/reviews`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     });
     const review = await response.json()
-    console.log('RESPONSE------------------', response)
-    dispatch(getAReviewAction(review))
+    console.log('REVIEW>>>>>>>', review)
+    dispatch(getAReviewAction(review.reviews))
 
 }
 
@@ -77,6 +78,7 @@ export const createReviewThunk = (formData, carId) => async (dispatch) => {
     });
     if (response.ok) {
         const newReview = await response.json()
+        console.log("NEW REVIEW !!!!!", newReview)
         dispatch(createReviewAction(newReview))
     }
 }
@@ -96,10 +98,10 @@ export const updateReviewThunk = (formData, reviewId) => async (dispatch) => {
 export const deleteReviewThunk = (reviewId) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
     });
     if (response.ok) {
-        dispatch(deleteReviewAction(reviewId))
+        const deletedReview = await response.json()
+        dispatch(deleteReviewAction(deletedReview))
     }
 }
 
@@ -110,7 +112,9 @@ const initialState = { Reviews: {} }
 const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_A_REVIEW: {
-            return { ...state, [action.payload.id]: action.payload }
+            const newState = {};
+            action.payload.forEach(review => newState[review.id] = { ...review });
+            return { ...state, Reviews: { ...newState } }
         }
         case GET_CURRENTUSER_REVIEWS: {
             const newState = {};

@@ -14,11 +14,11 @@
     color: #333;
 }
 
-.update-review-textarea-container {
+.update-review-input-box {
     position: relative;
 }
 
-.update-review-textarea-container textarea {
+.update-review-input-box textarea {
     width: 95%;
     height: 150px;
     padding: 10px;

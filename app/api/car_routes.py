@@ -24,14 +24,15 @@ def car_details(id):
     return car.to_dict()
 
 
-# Get car reviews
+# Get car reviews by car id
 @car_routes.route("/<int:id>/reviews")
 def car_review(id):
+    # print ("Hiiiiiiiiiiiiiiiii")
     get_review = Review.query.filter(Review.car_id==id).all()
-    print ("-------------", get_review)
+    print ("------------->>>>>>>>>>", get_review)
     
     if not get_review:
-        return {"message": "Car not found"}, 404
+        return {"message": "This is not right"}
     
     all_reviews = [review.to_dict() for review in get_review]
     return {"reviews": all_reviews}
@@ -81,18 +82,21 @@ def createCar():
 
 # Add a review
 @car_routes.route("/<int:id>/reviews", methods=['POST'])
-@login_required
+# @login_required
 def add_review(id):
     form = CreateReviewForm()
+    print("87 show show show")
     form['csrf_token'].data= request.cookies['csrf_token']
     user = current_user.to_dict()
     get_car = Car.query.get(id)
     
     if not get_car:
+        print("BYEEEEEE no car")
         return {"message": "Car not found"}, 404
 
         
     if form.validate_on_submit():
+        print("HELLLLLLLLLLLLLO")
         new_review=Review(
             user_id = user['id'],
             car_id = id,
@@ -101,9 +105,11 @@ def add_review(id):
         
         db.session.add(new_review)
         db.session.commit()
+        print("FORM VALIDDDDDDDDD", new_review)
         return new_review.to_dict()
+
     if form.errors:
-        print(form.errors)
+        print("ERRRRRRRORRR!!!", form.errors)
         return form.errors, 400
 
 
