@@ -25,11 +25,9 @@ function CarDetails() {
     // console.log('----------->>>>>', reviewsObj)
     const reviews = Object.values(reviewsObj?.Reviews)
 
+
     const { setModalContent } = useModal();
 
-
-
-    // const review = reviewState.Reviews()
 
     const [deleted, setDelete] = useState(false)
     const reRenderOnDelete = () => {
@@ -47,9 +45,6 @@ function CarDetails() {
     const reRenderOnPost = () => {
         setPosted(!posted)
     }
-
-    console.log('~~~~~~~~~~~', currentUser)
-    console.log('...........', currentUser?.id)
     console.log(car)
 
 
@@ -59,11 +54,17 @@ function CarDetails() {
     }, [dispatch, carId, deleted, updated, posted])
 
 
-    // const owner = currentUser?.id == car.owner;
-    // console.log("car.owner------", car.owner)
-    // console.log("currentuser------", currentUser?.id)
-    // console.log('ownerrr', owner)
-    console.log(car.owner == currentUser.id)
+    // const owner = currentUser?.id == car?.owner;
+    const carOwner = currentUser && car?.owner == currentUser?.id;
+    const reviewOwner = currentUser && reviewsObj?.Reviews[carId]?.user?.id == currentUser?.id
+    console.log('ownerrr', reviewOwner)
+
+    console.log("reviewOwner", reviewsObj?.Reviews[carId]?.user?.id)
+    // console.log("car>>------", car)
+    console.log("currentuser = reviewowner?------", currentUser?.id == reviewsObj?.Reviews[carId]?.user?.id)
+
+    // console.log("review user", review?.user_id)
+
 
     const handlePost = (carId) => {
         setModalContent(<CreateReviews carId={carId} reRenderOnPost={reRenderOnPost} />)
@@ -105,26 +106,34 @@ function CarDetails() {
                     </div>
 
                     {reviews?.map((review) => {
+                        const ownReview = currentUser?.id == review.user_id
                         return (
                             <div key={review.id}>
                                 <p>{review.review}</p>
-                                {<button className="delete-review-button" onClick={() => handleDelete(review?.id)}>Delete</button>}
-                                {<button className="update-review-button" onClick={() => handleUpdate(review?.id, review?.review)}>Update</button>}
+                                {currentUser && ownReview && (
+                                    <>
+                                        {<button className="delete-review-button" onClick={() => handleDelete(review?.id)}>Delete</button>}
+                                        {<button className="update-review-button" onClick={() => handleUpdate(review?.id, review?.review)}>Update</button>}
+                                    </>
+                                )}
                             </div>
                         )
                     })}
 
-                    {/* {currentUser && currentUser?.id !== car.owner && ( */}
-                    <div>
-                        <p>Be the first to post a review!</p>
-                        {<button onClick={() => handlePost(carId)}>Post Review</button>}
-                    </div>
-                    {/* )} */}
+                    {!currentUser || carOwner ? (
+                        <div>
+                            <h3>Sorry, review is unavailable for you. You cannot review your own cars or you need to be logged in.</h3>
+                        </div>
+                    ) :
+                        <>
+                            <h3>Leave your review here!</h3>
+                            <button onClick={() => handlePost(carId)}>Post Review</button>
+                        </>}
                 </div>
 
             </div>
             <Link to="/cars" className="back-button">Back to Cars</Link>
-        </div>
+        </div >
 
     )
 }

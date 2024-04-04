@@ -85,7 +85,7 @@ export const getCurrentCarThunk = () => async (dispatch) => {
 
 
 export const createNewCarThunk = (formData) => async (dispatch) => {
-    const response = await fetch('/api/cars', {
+    const response = await fetch('/api/cars/new', {
         method: 'POST',
         body: formData
     });

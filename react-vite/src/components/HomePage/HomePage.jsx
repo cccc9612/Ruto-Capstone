@@ -41,7 +41,7 @@ export const HomePage = () => {
                     <label>Until</label>
                     <input type="date" value={until} onChange={e => setUntil(e.target.value)} />
                 </div>
-                <button className="homepage-search-button"><FaSearch /></button>
+                <button className="homepage-search-button" onClick={() => alert('Feature coming soon')}><FaSearch /></button>
             </form>
             <div className="homepage-background-img">
                 <img src={homepageImage} alt='homepageImage' />

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
-import LoginFormPage from '../components/LoginFormPage';
-import SignupFormPage from '../components/SignupFormPage';
+// import LoginFormPage from '../components/LoginFormPage';
+// import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import { HomePage } from '../components/HomePage/HomePage';
 import ViewCars from '../components/Cars/ViewCars';
@@ -57,14 +57,14 @@ export const router = createBrowserRouter([
         path: "/users/trips",
         element: <Trips />
       },
-      {
-        path: "login",
-        element: <LoginFormPage />,
-      },
-      {
-        path: "signup",
-        element: <SignupFormPage />,
-      },
+      // {
+      //   path: "login",
+      //   element: <LoginFormPage />,
+      // },
+      // {
+      //   path: "signup",
+      //   element: <SignupFormPage />,
+      // },
     ],
   },
 ]);

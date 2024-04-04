@@ -5,7 +5,7 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { MdFavoriteBorder } from "react-icons/md";
 import { PiRoadHorizon } from "react-icons/pi";
 import { IoCarOutline } from "react-icons/io5";
@@ -18,11 +18,14 @@ import { MdManageSearch } from "react-icons/md";
 
 
 
+
 function ProfileButton() {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
+  const navigate = useNavigate();
+
 
   const toggleMenu = (e) => {
     e.stopPropagation(); // Keep from bubbling up to document and triggering closeMenu
@@ -47,7 +50,8 @@ function ProfileButton() {
 
   const logout = (e) => {
     e.preventDefault();
-    dispatch(thunkLogout());
+    dispatch(thunkLogout())
+      .then(() => navigate('/'))
     closeMenu();
   };
 

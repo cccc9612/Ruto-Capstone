@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./CreateCars.css"
 import { createNewCarThunk } from "../../../redux/car";
 
@@ -19,8 +19,8 @@ function CreateCars() {
     const [imageLoading, setImageLoading] = useState(false);
     const [errors, setErrors] = useState({})
     // const [duration, setDuration] = useState("");
-    const sessionUser = useSelector(state => state.session.user);
-    if (!sessionUser) navigate('/')
+    // const sessionUser = useSelector(state => state.session.user);
+    // if (!sessionUser) navigate('/')
 
     useEffect(() => {
         const validationObj = {};
@@ -29,7 +29,7 @@ function CreateCars() {
             validationObj.price = "Price is required and must greater than 0"
         }
 
-        if (!year || price < 1920) {
+        if (!year || year < 1920) {
             validationObj.year = "Year is required and must greater than 1920"
         }
 
@@ -92,6 +92,7 @@ function CreateCars() {
                 onSubmit={handleSubmit}
                 encType="multipart/form-data"
             >
+                <h1>Create A New Car</h1>
                 <div className="create-car-container">
                     <div className="create-form-left">
                         <div className="create-car-input-section">

@@ -27,6 +27,7 @@ function SignupFormModal() {
           "Confirm Password field must be the same as the Password field",
       });
     }
+    console.log('firstnameeeee', first_name)
 
     const serverResponse = await dispatch(
       thunkSignup({
@@ -37,6 +38,7 @@ function SignupFormModal() {
         password,
       })
     );
+
 
     if (serverResponse) {
       setErrors(serverResponse);
@@ -51,7 +53,7 @@ function SignupFormModal() {
     if (first_name.length === 0) err.first_name = 'First name is required';
     if (last_name.length === 0) err.last_name = 'Last name is required';
     if (username.length < 4) err.username = 'Username must be 4 or more characters';
-    if (email.length === 0) err.email = 'Email is required';
+    if (email.length < 5) err.email = 'Please enter a valid email address';
     if (password.length < 6) err.password = "Password must be 6 or more characters";
     if (confirmPassword.length < 0) err.confirmPassword = "Confirmed password must be 6 or more characters"
     setErrors(err);

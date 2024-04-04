@@ -56,3 +56,50 @@
 .back-button:hover {
     background-color: #0056b3;
 }
+
+
+.all-reviews-container p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.all-reviews-container button {
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-review-button {
+    background-color: #ed7d7d;
+    color: white;
+}
+
+.delete-review-button:hover {
+    background-color: #ff3333;
+}
+
+.update-review-button {
+    background-color: #3c7bd4;
+    color: white;
+}
+
+.update-review-button:hover {
+    background-color: #0c678e;
+}
+
+
+.all-reviews-container>button {
+    background-color: #007bff;
+    color: white;
+    display: block;
+    width: auto;
+    margin-top: 10px;
+}
+
+.all-reviews-container>button:hover {
+    background-color: #0056b3;
+}
