@@ -1,74 +1,93 @@
+.manage-your-car-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.manage-your-car-h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+    font-weight: 600;
+}
+
+
 .cars-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    text-align: center;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
 }
+
 
 .car-item-card-navlink {
     text-decoration: none;
     color: inherit;
-}
-
-
-.manage-your-car-h1 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
+    margin: 1rem;
 }
 
 .car-item-card-navlink:hover .car-card-container {
-    transform: translateY(-5px);
+    transform: translateY(-0.25rem);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .car-card-container {
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.3s;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.create-car-button,
+.update-car-button,
+.delete-car-button {
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
 }
 
 .create-car-button {
-    display: block;
-    margin: 20px;
-    padding: 10px 30px;
-    font-weight: bolder;
-    color: #fdfdfd;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    background-color: rgba(173, 195, 218, 0.637);
+    background-color: #5cb85c;
 }
 
 .create-car-button:hover {
-    background-color: #74b1f3;
+    background-color: #4cae4c;
 }
 
-.update-car-button,
+.update-car-button {
+    background-color: #f0ad4e;
+}
+
+.update-car-button:hover {
+    background-color: #ec971f;
+}
+
 .delete-car-button {
-    display: block;
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #74a7ff4f;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #d9534f;
 }
 
-.update-car-button:hover,
 .delete-car-button:hover {
-    background-color: #c82333;
+    background-color: #c9302c;
 }
 
-.update-car-link,
-.delete-car-button {
-    text-decoration: none;
+
+.create-car-link,
+.update-car-link {
     color: inherit;
+    text-decoration: none;
+    display: block;
 }

@@ -30,29 +30,6 @@ function SignupFormModal() {
     // console.log('firstnameeeee', first_name)
 
 
-    const validateEmail = (email) => {
-      return /\S+@\S+\.\S+/.test(email);
-    };
-
-    const validateUsername = (username) => {
-      return username.length >= 4;
-    };
-
-    const validatePassword = (password) => {
-      return password.length >= 6;
-    };
-
-    // Adjusted useEffect hook
-    useEffect(() => {
-      const errors = {};
-      if (first_name.trim() === "") { errors.first_name = 'First name is required' };
-      if (last_name.trim() === "") { errors.last_name = 'Last name is required' };
-      if (!validateEmail(email)) errors.email = 'Please enter a valid email address';
-      if (!validateUsername(username)) errors.username = 'Username must be 4 or more characters';
-      if (!validatePassword(password)) errors.password = "Password must be 6 or more characters";
-      if (password !== confirmPassword) errors.confirmPassword = "Confirmed password must match the password";
-      setErrors(errors);
-    }, [first_name, last_name, email, username, password, confirmPassword,]);
 
 
     const serverResponse = await dispatch(
@@ -73,19 +50,31 @@ function SignupFormModal() {
     }
   };
 
+  const validateEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  const validateUsername = (username) => {
+    return username.length >= 4;
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 6;
+  };
+
   useEffect(() => {
-    const err = {};
-    if (first_name.trim() === "") { errors.first_name = 'First name is required' };
-    if (last_name.trim() === "") { errors.last_name = 'Last name is required' };
-    if (!validateEmail(email)) errors.email = 'Please enter a valid email address';
-    if (!validateUsername(username)) errors.username = 'Username must be 4 or more characters';
-    if (!validatePassword(password)) errors.password = "Password must be 6 or more characters";
-    if (password !== confirmPassword) errors.confirmPassword = "Confirmed password must match the password";
+    const errors = {};
+    if (first_name.trim() === "") { errors.first_name = 'First name is required' }
+    if (last_name.trim() === "") { errors.last_name = 'Last name is required' }
+    if (!validateEmail(email)) errors.email = 'Please enter a valid email address'
+    if (!validateUsername(username)) errors.username = 'Username must be 4 or more characters'
+    if (!validatePassword(password)) errors.password = "Password must be 6 or more characters"
+    if (password !== confirmPassword) errors.confirmPassword = "Confirmed password must match the password"
     // if (confirmPassword.length < 0) err.confirmPassword = "Confirmed password must be 6 or more characters"
     setErrors(errors);
     setHasSubmitted(false);
-    setErrors(err);
   }, [first_name, last_name, username, email, password, confirmPassword])
+
 
 
   return (

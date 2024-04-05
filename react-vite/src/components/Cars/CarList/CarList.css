@@ -1,57 +1,59 @@
-.cars-container {
+.car-card-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.car-item-card-navlink {
-    flex: 0 0 48%;
-
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: inherit;
-}
-
-.car-item-card {
-    display: flex;
+    flex-direction: column;
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 200px;
+    text-align: center;
 }
 
-.car-image {
-    flex: 0 0 30%;
-    margin-right: 20px;
-}
-
-.car-image img {
+.car-card-container img {
     width: 100%;
     height: auto;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
-.car-details {
-    flex: 1;
+.car-info-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.car-details h2 {
-    margin-bottom: 10px;
+.car-info-div p {
+    margin: 5px 0;
 }
 
-.car-details p {
-    margin-bottom: 5px;
+.car-info-div p:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
-.car-details .year-make {
+.car-info-div p:nth-child(3) {
+    color: #007bff;
     font-weight: bold;
 }
 
-.car-details .location {
+.car-info-div p:last-child {
     font-style: italic;
 }
 
-.car-details .price {
-    font-weight: bold;
-    color: #007bff;
+
+.cars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.car-item-card-navlink {
+    text-decoration: none;
+    color: inherit;
 }

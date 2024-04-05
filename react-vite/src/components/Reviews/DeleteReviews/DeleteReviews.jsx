@@ -14,7 +14,8 @@ function DeleteReview({ reviewId, reRenderOnDelete }) {
         await dispatch(deleteReviewThunk(reviewId));
         closeModal();
         reRenderOnDelete();
-        navigate(`/cars/current`)
+        navigate(`/cars/${carId}`)
+
     }
 
     return (

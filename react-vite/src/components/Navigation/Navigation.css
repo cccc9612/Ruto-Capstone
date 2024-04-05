@@ -3,7 +3,6 @@
 }
 
 
-
 .logo {
   width: 120px;
 }
@@ -24,9 +23,10 @@
 #host-box {
   border: 1px solid black;
   color: black;
-  padding: .4rem;
+  padding: .3rem;
   display: flex;
   align-items: center;
+  font-family: serif;
 }
 
 .header-left,

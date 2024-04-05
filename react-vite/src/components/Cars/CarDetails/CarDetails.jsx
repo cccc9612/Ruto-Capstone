@@ -47,21 +47,24 @@ function CarDetails() {
     }
     console.log(car)
 
+    const [hasPostedReview, setHasPostedReview] = useState(false);
+
 
     useEffect(() => {
         dispatch(getACarThunk(carId))
         dispatch(getAReviewThunk(carId))
-    }, [dispatch, carId, deleted, updated, posted])
+
+        const userReview = reviews.find(review => review.user.id === currentUser?.id);
+        setHasPostedReview(!!userReview);
+    }, [dispatch, carId, deleted, updated, posted, reviews, currentUser])
 
 
     // const owner = currentUser?.id == car?.owner;
     const carOwner = currentUser && car?.owner == currentUser?.id;
-    const reviewOwner = currentUser && reviewsObj?.Reviews[carId]?.user?.id == currentUser?.id
-    console.log('ownerrr', reviewOwner)
 
-    console.log("reviewOwner", reviewsObj?.Reviews[carId]?.user?.id)
+    // console.log("reviewOwner", reviewsObj?.Reviews[carId]?.user?.id)
     // console.log("car>>------", car)
-    console.log("currentuser = reviewowner?------", currentUser?.id == reviewsObj?.Reviews[carId]?.user?.id)
+    // console.log("currentuser = reviewowner?------", currentUser?.id == reviewsObj?.Reviews[carId]?.user?.id)
 
     // console.log("review user", review?.user_id)
 
@@ -85,11 +88,13 @@ function CarDetails() {
             <div className="car-details-container">
                 <img src={defaultImage} alt='default-image' style={{ width: "300px" }} />
                 <div className="car-info-section">
-                    <h2>{car?.year} {car?.make} {car?.model}</h2>
+                    <div className="car-info-title">
+                        <h2>{car?.year} {car?.make} {car?.model}</h2>
+                    </div>
                     <h3>Location: {car?.city}, {car?.state} </h3>
                     <h3>Mileage: {car?.mileage}</h3>
                     <h3>Price: ${car?.price}</h3>
-                    <div>
+                    <div className="car-info-right-side">
                         <h3>Description</h3>
                         <p>{car?.description}</p>
                     </div>
@@ -106,7 +111,10 @@ function CarDetails() {
                     </div>
 
                     {reviews?.map((review) => {
-                        const ownReview = currentUser?.id == review.user_id
+                        const ownReview = currentUser?.id == review?.user.id
+                        console.log("review.user_id", review?.user.id)
+                        console.log("currentUser.id ", currentUser?.id)
+                        console.log("same person? ", currentUser?.id == review?.user.id)
                         return (
                             <div key={review.id}>
                                 <p>{review.review}</p>
@@ -120,17 +128,25 @@ function CarDetails() {
                         )
                     })}
 
-                    {!currentUser || carOwner ? (
-                        <div>
-                            <h3>Sorry, review is unavailable for you. You cannot review your own cars or you need to be logged in.</h3>
-                        </div>
-                    ) :
-                        <>
-                            <h3>Leave your review here!</h3>
-                            <button onClick={() => handlePost(carId)}>Post Review</button>
-                        </>}
-                </div>
+                    {
+                        !currentUser || carOwner || hasPostedReview ? (
+                            <div>
+                                {hasPostedReview ? (
+                                    <h3>You have already posted a review for this car.</h3>
+                                ) : (
+                                    <h3>Sorry, review is unavailable for you. You cannot review your own cars or you need to be logged in.</h3>
+                                )}
+                            </div>
+                        ) : (
+                            <>
+                                <h3>Leave your review here!</h3>
+                                <button onClick={() => handlePost(carId)}>Post Review</button>
+                            </>
+                        )
+                    }
 
+
+                </div>
             </div>
             <Link to="/cars" className="back-button">Back to Cars</Link>
         </div >
