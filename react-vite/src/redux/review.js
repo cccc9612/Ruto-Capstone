@@ -52,7 +52,7 @@ export const getAReviewThunk = (carId) => async (dispatch) => {
         headers: { 'Content-Type': 'application/json' }
     });
     const review = await response.json()
-    console.log('REVIEW>>>>>>>', review)
+    console.log('REVIEW in thunk>>>>>>>', review)
     dispatch(getAReviewAction(review.reviews))
 
 }
@@ -68,7 +68,6 @@ export const getCurrentReviewsThunk = () => async (dispatch) => {
         return data
     }
 }
-
 
 
 export const createReviewThunk = (formData, carId) => async (dispatch) => {
@@ -113,7 +112,7 @@ const reviewReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_A_REVIEW: {
             const newState = {};
-            action.payload.forEach(review => newState[review.id] = { ...review });
+            action.payload?.forEach(review => newState[review.id] = { ...review });
             return { ...state, Reviews: { ...newState } }
         }
         case GET_CURRENTUSER_REVIEWS: {

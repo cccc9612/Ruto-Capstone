@@ -140,18 +140,21 @@ function CarDetails() {
                         !currentUser || carOwner || hasPostedReview ? (
                             <div>
                                 {hasPostedReview ? (
-                                    <h4>You have already posted a review for this car.</h4>
+                                    <h4 style={{ color: 'red' }}>You have already posted a review for this car.</h4>
                                 ) : (
                                     <h4>Sorry, review is unavailable for you. You cannot review your own cars or you need to be logged in.</h4>
                                 )}
                             </div>
                         ) : (
                             <>
-                                <h3>Leave your review here!</h3>
+                                <h3 className="leave-review-title">Leave your review here!</h3>
                                 <button onClick={() => handlePost(carId)}>Post Review</button>
                             </>
                         )
                     }
+                    {currentUser && !carOwner && reviews.length === 0 && (
+                        <p>Be the first to post a review!</p>
+                    )}
 
 
                 </div>

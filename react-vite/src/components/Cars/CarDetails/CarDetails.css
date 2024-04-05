@@ -25,6 +25,11 @@
     width: 100%;
 }
 
+.leave-review-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .car-info-main {
     display: flex;
     flex-direction: row;

@@ -32,7 +32,7 @@ def car_review(id):
     print ("------------->>>>>>>>>>", get_review)
     
     if not get_review:
-        return {"message": "This is not right"}
+        return {"message": "This is not right"}, 404
     
     all_reviews = [review.to_dict() for review in get_review]
     return {"reviews": all_reviews}

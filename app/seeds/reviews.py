@@ -14,7 +14,7 @@ def seed_reviews():
         review='Excellent performance, highly recommended.',  
     )
     review3 = Review(
-        user_id=2,
+        user_id=1,
         car_id=3,
         review='Very reliable, low maintenance costs.',   
     )
@@ -24,7 +24,7 @@ def seed_reviews():
         review='Smooth driving experience, great fuel efficiency.', 
     )
     review5 = Review(
-        user_id=3,
+        user_id=1,
         car_id=5,
         review='Spacious interior, comfortable seats.',    
     )
@@ -39,12 +39,12 @@ def seed_reviews():
         review='Excellent safety features, peace of mind while driving.',   
     )
     review8 = Review(
-        user_id=3,
+        user_id=1,
         car_id=8,
         review='Luxurious interior, premium materials used.',
     )
     review9 = Review(
-        user_id=1,
+        user_id=2,
         car_id=9,
         review='Responsive acceleration, sporty feel.', 
     )
@@ -54,7 +54,7 @@ def seed_reviews():
         review='High ground clearance, perfect for off-road adventures.', 
     )
     review11 = Review(
-        user_id=1,
+        user_id=2,
         car_id=9,
         review='Economical to own, low maintenance costs.',  
     )
@@ -64,7 +64,7 @@ def seed_reviews():
         review='Great value for money, reliable transportation.',
     )
     review13 = Review(
-        user_id=1,
+        user_id=3,
         car_id=7,
         review='Smooth transmission, effortless gear shifts.',   
     )
