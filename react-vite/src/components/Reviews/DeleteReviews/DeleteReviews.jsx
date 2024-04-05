@@ -4,7 +4,7 @@ import { deleteReviewThunk } from "../../../redux/review";
 import "./DeleteReviews.css";
 import { useNavigate } from "react-router-dom";
 
-function DeleteReview({ reviewId, reRenderOnDelete }) {
+function DeleteReview({ reviewId, carId, reRenderOnDelete }) {
     const { closeModal } = useModal();
     const dispatch = useDispatch();
     const navigate = useNavigate();

@@ -56,8 +56,13 @@ function CarDetails() {
 
         const userReview = reviews.find(review => review.user.id === currentUser?.id);
         setHasPostedReview(!!userReview);
-    }, [dispatch, carId, deleted, updated, posted, reviews, currentUser])
+    }, [dispatch, carId, deleted, updated, posted, currentUser?.id, reviews.length])
 
+
+    const reviewOwnership = reviews.reduce((acc, review) => {
+        acc[review.id] = review.user.id === currentUser?.id;
+        return acc;
+    }, {});
 
     // const owner = currentUser?.id == car?.owner;
     const carOwner = currentUser && car?.owner == currentUser?.id;
@@ -111,14 +116,14 @@ function CarDetails() {
                     </div>
 
                     {reviews?.map((review) => {
-                        const ownReview = currentUser?.id == review?.user.id
+                        // const ownReview = currentUser?.id == review?.user.id
                         console.log("review.user_id", review?.user.id)
                         console.log("currentUser.id ", currentUser?.id)
                         console.log("same person? ", currentUser?.id == review?.user.id)
                         return (
                             <div key={review.id}>
                                 <p>{review.review}</p>
-                                {currentUser && ownReview && (
+                                {currentUser && reviewOwnership[review.id] && (
                                     <>
                                         {<button className="delete-review-button" onClick={() => handleDelete(review?.id)}>Delete</button>}
                                         {<button className="update-review-button" onClick={() => handleUpdate(review?.id, review?.review)}>Update</button>}
