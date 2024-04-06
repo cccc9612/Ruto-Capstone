@@ -47,16 +47,19 @@ function CarDetails() {
     }
     console.log(car)
 
-    const [hasPostedReview, setHasPostedReview] = useState(false);
+    let hasPostedReview = false;
 
 
     useEffect(() => {
         dispatch(getACarThunk(carId))
         dispatch(getAReviewThunk(carId))
 
-        const userReview = reviews.find(review => review.user.id === currentUser?.id);
-        setHasPostedReview(!!userReview);
     }, [dispatch, carId, deleted, updated, posted, currentUser?.id, reviews.length])
+
+    const userReview = reviews.find(review => review.user.id === currentUser?.id);
+    if (userReview) {
+        hasPostedReview = true;
+    }
 
 
     const reviewOwnership = reviews.reduce((acc, review) => {
@@ -152,9 +155,9 @@ function CarDetails() {
                             </>
                         )
                     }
-                    {currentUser && !carOwner && reviews.length === 0 && (
+                    {/* {currentUser && !carOwner && reviews.length === 0 && (
                         <p>Be the first to post a review!</p>
-                    )}
+                    )} */}
 
 
                 </div>
